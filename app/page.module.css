@@ -1,0 +1,437 @@
+/* ---- HERO: light, warm, professional ---- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--gradient-hero);
+  overflow: hidden;
+}
+
+/* Decorative sky-blue shape — very soft */
+.heroShape {
+  position: absolute;
+  width: 680px;
+  height: 680px;
+  background: var(--sky);
+  border-radius: 50%;
+  opacity: 0.35;
+  top: -240px;
+  right: -180px;
+  pointer-events: none;
+}
+
+.heroShapeSecondary {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  background: var(--sky);
+  border-radius: 50%;
+  opacity: 0.18;
+  bottom: -160px;
+  left: -100px;
+  pointer-events: none;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-sky-light);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.95rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+}
+
+.heroHeading {
+  margin-bottom: 1.25rem;
+  max-width: 800px;
+}
+
+.heroAccentTeal { color: var(--teal); }
+.heroAccentNavy { color: var(--navy); }
+
+.heroSub {
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  color: var(--text-secondary);
+  max-width: 510px;
+  margin-bottom: 2.25rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3.5rem;
+}
+
+/* Hero Stats — card strip, no animation */
+.heroStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 780px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.heroStat {
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  border-right: 1px solid var(--border);
+  transition: background var(--transition-base);
+}
+
+.heroStat:last-child { border-right: none; }
+.heroStat:hover { background: var(--bg-sky-light); }
+
+.heroStatValue {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+.heroStatLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ---- SHARED ---- */
+.sectionSubtitle {
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* ---- PILLARS ---- */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.pillarCard {
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sky-blue accent top border on hover */
+.pillarCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.pillarCard:hover::before { opacity: 1; }
+
+.pillarNumber {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pillarIconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-spring);
+}
+
+.pillarCard:hover .pillarIconWrap { transform: scale(1.06); }
+
+.pillarTitle { margin: 0; }
+.pillarDesc { font-size: 0.862rem; color: var(--text-secondary); line-height: 1.7; }
+
+.pillarFeatures { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+
+.pillarFeatures li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.815rem;
+  color: var(--text-secondary);
+}
+
+.pillarCta {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+  transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-spring) !important;
+}
+
+.pillarCta:hover { transform: translateX(4px) !important; }
+
+/* ---- IMPACT STRIP ---- */
+.impactStrip {
+  background: var(--navy);
+  padding: 4.5rem 0;
+}
+
+.impactInner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5rem;
+  align-items: center;
+}
+
+.impactText { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.impactDesc {
+  color: rgba(245,239,235,0.7);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 500px;
+}
+
+.impactKpis { display: flex; flex-direction: column; gap: 0.875rem; }
+
+.impactKpi {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: rgba(245,239,235,0.65);
+  padding: 0.625rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: color var(--transition-fast);
+}
+
+.impactKpi:last-child { border-bottom: none; }
+.impactKpi strong { color: var(--text-on-dark); font-weight: 700; }
+.impactKpi:hover { color: rgba(245,239,235,0.9); }
+
+.impactVisual { display: flex; align-items: center; justify-content: center; }
+
+.impactRing {
+  width: 176px;
+  height: 176px;
+  border-radius: 50%;
+  background: conic-gradient(var(--sky) 0deg 338.4deg, rgba(255,255,255,0.12) 338.4deg 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+.impactRingInner {
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.impactRingValue {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--sky);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.impactRingLabel {
+  font-size: 0.68rem;
+  color: rgba(200,217,230,0.65);
+  font-weight: 500;
+}
+
+/* Override heading color for dark section */
+.impactStrip .heading-xl {
+  color: var(--text-on-dark);
+}
+
+/* ---- TESTIMONIALS ---- */
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.testimonialCard {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.testimonialQuoteIcon {
+  font-size: 3.5rem;
+  line-height: 0.8;
+  color: var(--sky);
+  font-family: Georgia, serif;
+  font-weight: 700;
+  margin-bottom: -0.5rem;
+}
+
+.testimonialQuote {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  flex: 1;
+  font-style: italic;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.testimonialName { font-size: 0.875rem; font-weight: 600; color: var(--navy); }
+.testimonialRole { font-size: 0.73rem; color: var(--text-muted); margin-top: 2px; }
+
+/* ---- SDG ---- */
+.sdgSection {
+  background: var(--bg-sky-light);
+  padding: 4.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.sdgGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.875rem;
+}
+
+.sdgCard {
+  padding: 1.5rem 0.875rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  cursor: default;
+}
+
+.sdgEmoji { font-size: 1.75rem; transition: transform var(--transition-spring); }
+.sdgCard:hover .sdgEmoji { transform: scale(1.12); }
+.sdgLabel { font-size: 0.72rem; font-weight: 700; color: var(--teal); letter-spacing: 0.05em; }
+.sdgDesc { font-size: 0.7rem; color: var(--text-muted); }
+
+/* ---- CTA ---- */
+.ctaSection { padding: 5rem 0; }
+
+.ctaBox {
+  background: var(--navy);
+  border-radius: var(--radius-2xl);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft sky-blue shimmer in the CTA */
+.ctaBox::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(200,217,230,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ctaBox .heading-xl { color: var(--text-on-dark); }
+.ctaBox .section-tag { background: rgba(200,217,230,0.12); border-color: rgba(200,217,230,0.25); color: var(--sky); }
+
+.ctaDesc {
+  color: rgba(245,239,235,0.7);
+  font-size: 0.95rem;
+  margin: 1rem auto 2.25rem;
+  max-width: 440px;
+  line-height: 1.75;
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Invert ghost btn for dark bg */
+.ctaBox .btn-ghost {
+  border-color: rgba(200,217,230,0.3);
+  color: var(--sky);
+}
+
+.ctaBox .btn-ghost:hover {
+  background: rgba(200,217,230,0.1);
+  border-color: rgba(200,217,230,0.5);
+  color: var(--white);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .pillarsGrid { grid-template-columns: 1fr; }
+  .testimonialGrid { grid-template-columns: 1fr; }
+  .sdgGrid { grid-template-columns: repeat(3, 1fr); }
+  .heroStats { grid-template-columns: repeat(2, 1fr); }
+  .heroStat { border-right: none; border-bottom: 1px solid var(--border); }
+  .heroStat:nth-child(odd) { border-right: 1px solid var(--border); }
+  .heroStat:last-child, .heroStat:nth-last-child(-n+2):nth-child(odd) { border-bottom: none; }
+}
+
+@media (max-width: 768px) {
+  .impactInner { grid-template-columns: 1fr; gap: 2rem; }
+  .impactVisual { display: none; }
+  .sdgGrid { grid-template-columns: repeat(2, 1fr); }
+  .heroShape, .heroShapeSecondary { display: none; }
+}
+
+@media (max-width: 480px) {
+  .heroCtas { flex-direction: column; width: 100%; }
+  .heroCtas .btn { width: 100%; }
+  .ctaBtns { flex-direction: column; }
+  .ctaBtns .btn { width: 100%; }
+  .heroStats { grid-template-columns: 1fr 1fr; }
+}

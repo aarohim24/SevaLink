@@ -1,0 +1,322 @@
+.pageContainer {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.successBanner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  color: var(--accent-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.3s ease;
+}
+
+/* Form */
+.formCard {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.needForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.formActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+/* KPI Grid */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.kpiCard {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kpiIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.kpiValue {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.kpiLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.kpiTrend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--accent-light);
+}
+
+/* Charts */
+.chartsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.chartCard {
+  padding: 1.5rem;
+}
+
+.chartHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.chartTooltip {
+  background: #1E293B;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.625rem 0.875rem;
+  font-size: 0.82rem;
+}
+
+.chartTooltipLabel {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+/* Bottom Row */
+.bottomRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Needs Table */
+.tableCard {
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.needsTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 80px;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  background: var(--bg-glass);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 80px;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.875rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition-fast);
+}
+
+.tableRow:hover {
+  background: var(--bg-glass);
+  border-radius: var(--radius-sm);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.needTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.needCategory {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.needLocation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.urgencyLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 4px;
+  display: block;
+}
+
+.volProgress {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.volNumbers {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Hotspot */
+.hotspotCard {
+  padding: 1.5rem;
+  width: 280px;
+}
+
+.hotspotGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.875rem;
+}
+
+.hotspotCell {
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  padding: 0.625rem 0.5rem;
+  text-align: center;
+  cursor: default;
+  transition: transform var(--transition-fast);
+}
+
+.hotspotCell:hover {
+  transform: scale(1.05);
+}
+
+.hotspotName {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hotspotScore {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hotspotNeeds {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.hotspotLegend {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1100px) {
+  .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+  .chartsRow { grid-template-columns: 1fr; }
+  .bottomRow { grid-template-columns: 1fr; }
+  .hotspotCard { width: 100%; }
+  .hotspotGrid { grid-template-columns: repeat(4, 1fr); }
+  .formGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+  .tableHeader, .tableRow {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .tableRow > :nth-child(4),
+  .tableRow > :nth-child(5),
+  .tableHeader > :nth-child(4),
+  .tableHeader > :nth-child(5) {
+    display: none;
+  }
+  .hotspotGrid { grid-template-columns: repeat(3, 1fr); }
+  .formGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .kpiGrid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,42 @@
+{
+  "kpis": {
+    "responseTimeReduction": 67,
+    "matchAccuracy": 89,
+    "dataConsolidation": 94,
+    "volunteerEngagement": 78,
+    "peopleHelped": 4820,
+    "activeVolunteers": 312,
+    "tasksCompleted": 189,
+    "ngosOnboarded": 24
+  },
+  "weeklyActivity": [
+    { "week": "Mar W1", "volunteersActive": 180, "tasksCompleted": 28, "peopleHelped": 620 },
+    { "week": "Mar W2", "volunteersActive": 210, "tasksCompleted": 34, "peopleHelped": 780 },
+    { "week": "Mar W3", "volunteersActive": 195, "tasksCompleted": 30, "peopleHelped": 700 },
+    { "week": "Mar W4", "volunteersActive": 240, "tasksCompleted": 38, "peopleHelped": 890 },
+    { "week": "Apr W1", "volunteersActive": 265, "tasksCompleted": 42, "peopleHelped": 950 },
+    { "week": "Apr W2", "volunteersActive": 290, "tasksCompleted": 47, "peopleHelped": 1050 },
+    { "week": "Apr W3", "volunteersActive": 312, "tasksCompleted": 52, "peopleHelped": 1180 }
+  ],
+  "needsByCategory": [
+    { "category": "Food Security", "count": 18, "urgent": 6 },
+    { "category": "Healthcare", "count": 14, "urgent": 5 },
+    { "category": "Education", "count": 22, "urgent": 2 },
+    { "category": "Housing", "count": 9, "urgent": 4 },
+    { "category": "Water & Sanitation", "count": 7, "urgent": 5 },
+    { "category": "Mental Health", "count": 11, "urgent": 2 },
+    { "category": "Livelihood", "count": 8, "urgent": 1 },
+    { "category": "Elder Care", "count": 6, "urgent": 0 }
+  ],
+  "districtHotspots": [
+    { "name": "Mumbai Central", "urgencyScore": 92, "openNeeds": 8, "volunteersNeeded": 28 },
+    { "name": "Dharavi", "urgencyScore": 88, "openNeeds": 6, "volunteersNeeded": 18 },
+    { "name": "Govandi", "urgencyScore": 85, "openNeeds": 5, "volunteersNeeded": 14 },
+    { "name": "Mankhurd", "urgencyScore": 76, "openNeeds": 5, "volunteersNeeded": 20 },
+    { "name": "Thane", "urgencyScore": 60, "openNeeds": 4, "volunteersNeeded": 10 },
+    { "name": "Navi Mumbai", "urgencyScore": 78, "openNeeds": 3, "volunteersNeeded": 8 },
+    { "name": "Kurla", "urgencyScore": 55, "openNeeds": 4, "volunteersNeeded": 12 },
+    { "name": "Bandra", "urgencyScore": 40, "openNeeds": 3, "volunteersNeeded": 6 },
+    { "name": "Pune", "urgencyScore": 30, "openNeeds": 2, "volunteersNeeded": 5 }
+  ]
+}

@@ -1,0 +1,435 @@
+.pageContainer {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.pageHeader {
+  margin-bottom: 1.5rem;
+}
+
+/* Registration Banner */
+.regBanner {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.regTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.regForm {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.regForm .form-input {
+  flex: 1;
+  min-width: 140px;
+}
+
+.ngoWelcome {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.2);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.successBanner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  color: var(--accent-light);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.3s ease;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+}
+
+.tab:hover { color: var(--text-primary); }
+
+.tabActive {
+  color: var(--primary-light);
+  border-bottom-color: var(--primary);
+  background: rgba(99,102,241,0.05);
+}
+
+.tabContent {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Post Tab */
+.postLayout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.postFormCard {
+  padding: 2rem;
+}
+
+.postForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.urgencySelector {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.urgencyBtn {
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.urgencyBtnActive {
+  font-weight: 600;
+}
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.skillBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.skillBtnActive {
+  border-color: var(--primary) !important;
+  background: rgba(99,102,241,0.1) !important;
+  color: var(--primary-light) !important;
+}
+
+.formActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+/* Tips Sidebar */
+.tipsSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tipsCard {
+  padding: 1.5rem;
+}
+
+.tipsTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.tipsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.tipsList li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding-left: 0.875rem;
+  position: relative;
+}
+
+.tipsList li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary-light);
+  font-size: 0.7rem;
+}
+
+.platformStats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.platformStat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.platformStatValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  min-width: 60px;
+}
+
+.platformStatLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* My Needs Tab */
+.needsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.needsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.needItemCard {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.needItemHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.needItemTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.needItemMeta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.needItemMeta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.needItemBadges {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.needItemDesc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.needItemBottom {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.volunteerProgress {
+  flex: 1;
+  min-width: 160px;
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.needItemSkills {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+/* Impact Tab */
+.impactGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.impactCard {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.impactIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.impactValue {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.impactLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.needsBreakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.breakdownCard {
+  padding: 2rem;
+}
+
+.breakdownGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.breakdownItem {
+  text-align: center;
+  padding: 1rem;
+  background: var(--bg-glass);
+  border-radius: var(--radius-md);
+}
+
+.kpiList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kpiRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.kpiRow:last-child {
+  border-bottom: none;
+}
+
+.kpiEmoji {
+  font-size: 1.2rem;
+}
+
+.kpiMeta {
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .postLayout { grid-template-columns: 1fr; }
+  .impactGrid { grid-template-columns: repeat(2, 1fr); }
+  .needsBreakdown { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .impactGrid { grid-template-columns: 1fr; }
+  .formGrid { grid-template-columns: 1fr; }
+  .regBanner { flex-direction: column; gap: 1rem; }
+  .regForm { flex-direction: column; }
+}
