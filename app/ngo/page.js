@@ -3,7 +3,8 @@ import { useState } from 'react';
 import {
   Building2, Plus, CheckCircle, Clock, Users, TrendingUp,
   MapPin, AlertTriangle, BarChart2, FileText, Edit3,
-  Lightbulb, ClipboardList, Target, Timer, Navigation, UserCheck
+  Lightbulb, ClipboardList, Target, Timer, Navigation, UserCheck,
+  Sparkles, Loader2
 } from 'lucide-react';
 import needsData from '@/data/needs.json';
 import metricsData from '@/data/metrics.json';
@@ -33,6 +34,10 @@ export default function NGOPage() {
     urgency: 3, skills: [], volunteersNeeded: 1, description: '', deadline: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [aiText, setAiText] = useState('');
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState('');
+  const [aiSuccess, setAiSuccess] = useState(false);
 
   const { kpis } = metricsData;
 
@@ -43,6 +48,38 @@ export default function NGOPage() {
         ? prev.skills.filter(s => s !== skill)
         : [...prev.skills, skill],
     }));
+  };
+
+  const handleExtractWithAI = async () => {
+    if (!aiText.trim()) return;
+    setAiLoading(true);
+    setAiError('');
+    setAiSuccess(false);
+    try {
+      const res = await fetch('/api/gemini/extract-need', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rawText: aiText }),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.success) throw new Error(json.error || 'Extraction failed');
+      const d = json.data;
+      setForm(prev => ({
+        ...prev,
+        title: d.title || prev.title,
+        category: d.category || prev.category,
+        location: d.location || prev.location,
+        urgency: d.urgency || prev.urgency,
+        skills: d.skillsRequired?.length ? d.skillsRequired : prev.skills,
+        volunteersNeeded: d.volunteersNeeded || prev.volunteersNeeded,
+        description: d.description || prev.description,
+      }));
+      setAiSuccess(true);
+    } catch (err) {
+      setAiError(err.message || 'Could not extract. Please try again.');
+    } finally {
+      setAiLoading(false);
+    }
   };
 
   const handlePostNeed = (e) => {
@@ -148,11 +185,58 @@ export default function NGOPage() {
               </div>
             )}
             <div className={styles.postLayout}>
+              {/* ---- GEMINI AI PANEL ---- */}
+              <div className={`${styles.aiPanel}`} style={{ gridColumn: '1 / -1' }}>
+                <div className={styles.aiPanelHeader}>
+                  <div className={styles.aiPanelTitle}>
+                    <Sparkles size={16} style={{ color: 'var(--teal)' }} />
+                    <span>AI-Powered Need Extraction</span>
+                    <span className="badge badge-accent" style={{ fontSize: '0.62rem' }}>Powered by Gemini</span>
+                  </div>
+                  <p className={styles.aiPanelDesc}>
+                    Describe the community need in your own words — Gemini will extract and fill the form for you.
+                  </p>
+                </div>
+                <div className={styles.aiInputRow}>
+                  <textarea
+                    className={`form-textarea ${styles.aiTextarea}`}
+                    rows={3}
+                    placeholder='e.g. "We have 40 families without food in Dharavi since the flood, we need people who can cook and distribute, very urgent situation..."'
+                    value={aiText}
+                    onChange={e => setAiText(e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    className={`btn btn-accent ${styles.aiExtractBtn}`}
+                    onClick={handleExtractWithAI}
+                    disabled={aiLoading || !aiText.trim()}
+                  >
+                    {aiLoading
+                      ? <><Loader2 size={16} className={styles.spin} /> Extracting...</>
+                      : <><Sparkles size={16} /> Extract with AI</>
+                    }
+                  </button>
+                </div>
+                {aiSuccess && (
+                  <div className={styles.aiSuccess}>
+                    <CheckCircle size={14} />
+                    Form auto-filled by Gemini — review and adjust below before posting.
+                  </div>
+                )}
+                {aiError && (
+                  <div className={styles.aiError}>
+                    <AlertTriangle size={14} />
+                    {aiError}
+                  </div>
+                )}
+              </div>
+
               <div className={`glass-card ${styles.postFormCard}`}>
                 <h3 className="heading-md" style={{ marginBottom: '1.5rem' }}>
                   <Edit3 size={18} style={{ display: 'inline', marginRight: 8 }} />
                   Post a Community Need
                 </h3>
+
                 <form onSubmit={handlePostNeed} className={styles.postForm}>
                   <div className={styles.formGrid}>
                     <div className="form-group" style={{ gridColumn: '1 / -1' }}>

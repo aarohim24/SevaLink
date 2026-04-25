@@ -432,3 +432,18 @@
   .matchesGrid { grid-template-columns: 1fr; }
   .availRow { flex-direction: column; }
 }
+
+/* Gemini AI explanation row */
+.aiExplain {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  background: linear-gradient(135deg, rgba(86,124,141,0.06) 0%, rgba(200,217,230,0.10) 100%);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  font-style: italic;
+}

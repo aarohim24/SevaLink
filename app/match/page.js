@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Zap, MapPin, Clock, Star, CheckCircle, X, Filter, Search, Users } from 'lucide-react';
+import { Zap, MapPin, Clock, Star, CheckCircle, X, Filter, Search, Users, Sparkles, Loader2 } from 'lucide-react';
 import volunteersData from '@/data/volunteers.json';
 import needsData from '@/data/needs.json';
 import styles from './page.module.css';
@@ -45,6 +45,8 @@ export default function MatchPage() {
     name: '',
   });
   const [matches, setMatches] = useState([]);
+  const [aiExplanations, setAiExplanations] = useState({});
+  const [explanationLoading, setExplanationLoading] = useState(false);
   const [accepted, setAccepted] = useState([]);
   const [needSearch, setNeedSearch] = useState('');
 
@@ -79,6 +81,26 @@ export default function MatchPage() {
     })).sort((a, b) => b.score - a.score).slice(0, 6);
     setMatches(results);
     setStep(3);
+    // Fetch Gemini explanations for top 3 matches asynchronously
+    setExplanationLoading(true);
+    Promise.all(
+      results.slice(0, 3).map(async ({ need, score }) => {
+        try {
+          const res = await fetch('/api/gemini/explain-match', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ volunteer, need, score: score / 100 }),
+          });
+          const json = await res.json();
+          return { id: need.id, explanation: json.explanation };
+        } catch { return { id: need.id, explanation: null }; }
+      })
+    ).then(results => {
+      const map = {};
+      results.forEach(r => { if (r.explanation) map[r.id] = r.explanation; });
+      setAiExplanations(map);
+      setExplanationLoading(false);
+    });
   };
 
   const urgencyColor = (u) => u >= 5 ? 'var(--danger)' : u >= 4 ? '#F97316' : u >= 3 ? 'var(--warning)' : 'var(--accent)';
@@ -319,6 +341,16 @@ export default function MatchPage() {
                     </span>
                   </div>
                   <p className={styles.matchDesc}>{need.description}</p>
+                  {/* Gemini AI explanation */}
+                  {(aiExplanations[need.id] || explanationLoading) && (
+                    <div className={styles.aiExplain}>
+                      <Sparkles size={12} style={{ color: 'var(--teal)', flexShrink: 0 }} />
+                      {aiExplanations[need.id]
+                        ? <span>{aiExplanations[need.id]}</span>
+                        : <span style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>Gemini is generating an explanation…</span>
+                      }
+                    </div>
+                  )}
                   <div className={styles.matchSkills}>
                     <span className="text-xs text-muted">Matched skills: </span>
                     {matchedSkills.length > 0
