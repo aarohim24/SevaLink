@@ -10,7 +10,7 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Please provide a description of at least 10 characters.' }, { status: 400 });
     }
 
-    const model = getGeminiModel('gemini-1.5-flash');
+    const model = getGeminiModel('gemini-2.0-flash-lite');
 
     const prompt = `You are an AI assistant for an NGO volunteer coordination platform in India.
 A field worker has described a community need in plain language. Extract the structured data from it.
@@ -47,6 +47,9 @@ Return ONLY a valid JSON object with exactly these fields (no markdown, no expla
     return NextResponse.json({ success: true, data: structured });
   } catch (err) {
     console.error('Gemini extract-need error:', err);
-    return NextResponse.json({ error: 'Failed to extract need. Please try again or fill the form manually.' }, { status: 500 });
+    return NextResponse.json({
+      error: 'Failed to extract need. Please try again or fill the form manually.',
+      debug: err?.message || String(err),
+    }, { status: 500 });
   }
 }

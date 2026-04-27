@@ -7,7 +7,7 @@ export async function POST(request) {
   try {
     const { volunteer, need, score } = await request.json();
 
-    const model = getGeminiModel('gemini-1.5-flash');
+    const model = getGeminiModel('gemini-2.0-flash-lite');
 
     const skillOverlap = (volunteer.skills || []).filter(s => (need.skillsRequired || []).includes(s));
     const sameDistrict = volunteer.district === need.district;
