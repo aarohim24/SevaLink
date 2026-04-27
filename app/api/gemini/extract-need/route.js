@@ -10,7 +10,7 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Please provide a description of at least 10 characters.' }, { status: 400 });
     }
 
-    const model = getGeminiModel('gemini-2.0-flash-lite');
+    const model = getGeminiModel('gemini-1.5-flash-latest');
 
     const prompt = `You are an AI assistant for an NGO volunteer coordination platform in India.
 A field worker has described a community need in plain language. Extract the structured data from it.

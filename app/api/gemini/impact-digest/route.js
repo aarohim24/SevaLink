@@ -7,7 +7,7 @@ export async function POST(request) {
   try {
     const { ngoName, needsResolved, volunteersDeployed, peopleReached, topCategories } = await request.json();
 
-    const model = getGeminiModel('gemini-2.0-flash-lite');
+    const model = getGeminiModel('gemini-1.5-flash-latest');
 
     const prompt = `You are writing a concise, warm, and professional impact summary for a donor report.
 
